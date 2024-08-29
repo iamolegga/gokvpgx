@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/iamolegga/gokvpgx"
-	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/philippgille/gokv/encoding"
 	"github.com/philippgille/gokv/test"
 )
@@ -27,7 +27,7 @@ func TestClient(t *testing.T) {
 }
 
 func createClient(t *testing.T, codec encoding.Codec) *gokvpgx.Client {
-	pool, err := pgxpool.Connect(context.Background(), "postgres://postgres:secret@localhost:5432/gokv?sslmode=disable")
+	pool, err := pgxpool.New(context.Background(), "postgres://postgres:secret@localhost:5432/gokv?sslmode=disable")
 	if err != nil {
 		t.Fatalf("Unable to connect to database: %v", err)
 	}

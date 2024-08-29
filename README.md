@@ -1,5 +1,7 @@
 # gokvpgx
 
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/iamolegga/gokvpgx)](https://pkg.go.dev/github.com/iamolegga/gokvpgx)
+
 `gokvpgx` is a PostgreSQL client for the `gokv` key-value store interface, implemented using the `pgx` library. This package allows you to use PostgreSQL as a key-value store with efficient prepared statements, ensuring optimal performance and security.
 
 ## Features
@@ -30,13 +32,13 @@ import (
     "log"
 
     "github.com/iamolegga/gokvpgx"
-    "github.com/jackc/pgx/v4/pgxpool"
+    "github.com/jackc/pgx/v5/pgxpool"
     "github.com/philippgille/gokv/encoding"
 )
 
 func main() {
     // Create a connection pool
-    pool, err := pgxpool.Connect(context.Background(), "postgres://postgres:secret@localhost:5432/gokv?sslmode=disable")
+    pool, err := pgxpool.New(context.Background(), "postgres://postgres:secret@localhost:5432/gokv?sslmode=disable")
     if err != nil {
         log.Fatalf("Unable to connect to database: %v", err)
     }

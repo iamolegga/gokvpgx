@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/jackc/pgx/v4"
-	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 	"github.com/philippgille/gokv/encoding"
 	"github.com/philippgille/gokv/util"
 )
@@ -50,7 +50,7 @@ func NewClient(options Options) (*Client, error) {
 	// Create table if it doesn't exist yet
 	_, err := options.Pool.Exec(context.Background(), `CREATE TABLE IF NOT EXISTS `+client.TableName+` (k TEXT PRIMARY KEY, v BYTEA NOT NULL)`)
 	if err != nil {
-		client.Close()
+		_ = client.Close()
 		return nil, err
 	}
 
