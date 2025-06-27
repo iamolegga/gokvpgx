@@ -1,3 +1,5 @@
+<h1 align="center">Merged in <a href="https://github.com/philippgille/gokv/tree/64606da11bfb8a150c6740c004a5d42a14206960/pgx">gokv repository</a></h1>
+
 # gokvpgx
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/iamolegga/gokvpgx)](https://pkg.go.dev/github.com/iamolegga/gokvpgx)
